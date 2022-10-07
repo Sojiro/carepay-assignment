@@ -1,0 +1,17 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "carepay",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "carepay",
+      "kebab-case"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Treatments</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field hintLabel="min 3 characters">
+      <mat-icon matPrefix inline="true">search</mat-icon>
+      <input matInput (keyup)="searchBy($event.target.value)" placeholder="Search by treatment codes..."
+        [formControl]="searchByCode" />
+      <mat-icon *ngIf="
+                    searchByCode.dirty &&
+                    !searchByCode.hasError('minlength') &&
+                    searchByCode.hasError('invalid')
+                " matSuffix color="error" inline="true" title="Invalid error code">error</mat-icon>
+    </mat-form-field>
+
+    <carepay-treatments-table [treatments]="treatments$ | async"></carepay-treatments-table>
+
+    <carepay-spinner [show]="isLoading"></carepay-spinner>
+  </mat-card-content>
+</mat-card>
